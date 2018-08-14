@@ -1,6 +1,6 @@
 import { Application, NextFunction, Request, Response } from "express"
 import fetch from "node-fetch"
-import simpleOauthModule, { OAuthClient } from "simple-oauth2"
+import simpleOauthModule, { AuthorizationTokenConfig, OAuthClient } from "simple-oauth2"
 import * as log from "./logger"
 
 export interface ICredentials {
@@ -141,8 +141,7 @@ export default class SSOClient {
   public async callback(req: Request, res: Response) {
     const options = {
       code: req.query.code,
-      redirect_uri: "",
-    }
+    } as AuthorizationTokenConfig
     if (this.oauth2) {
       try {
         const result = await this.oauth2.authorizationCode.getToken(options)
