@@ -34,7 +34,7 @@ const ENABLE_AUTH = app.get("env") === "production"
 const auth = new SSOClient(app)
 auth.initialize(ENABLE_AUTH)
 
-app.use(/\/(!callback.)*/, (req, res, next) => {
+app.use(/\/(?!callback).*/, (req, res, next) => {
   auth.middleware(req, res, next)
 })
 
