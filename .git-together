@@ -1,0 +1,5 @@
+[git-together]
+	domain = pivotal.io
+[git-together "authors"]
+	ay = "Avery Yen; ayen"
+	rr = "Ryker Reed; rreed"

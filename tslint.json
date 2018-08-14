@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "tslint:recommended"
+  ],
+  "linterOptions": {},
+  "rules": {
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "no-console": false
+  }
+}
