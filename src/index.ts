@@ -153,7 +153,7 @@ export default class SSOClient {
         }
         return res.redirect("/")
       } catch (error) {
-        log.httpError(req, error.context.error_description)
+        log.httpError(req, error)
         return res.json("Authentication failed")
       }
     }

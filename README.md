@@ -10,7 +10,7 @@ For more information on PCF SSO visit:
 
 ## Basic Usage Example:
 
-Install with NPM or Yarn: `yarn add pcf-express-sso`.
+Install with NPM or Yarn: `yarn add pcf-express-sso`. If you are using TypeScript you will also need to add `@types/express` and `@types/simple-oauth2`.
 
 ```typescript
 import * as express from "express"
