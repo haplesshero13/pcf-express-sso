@@ -1,6 +1,6 @@
 {
   "name": "pcf-express-sso",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Express JS/TS middleware for Pivotal Cloud Foundry Single Sign On",
   "main": "lib/index",
   "types": "lib/index",
