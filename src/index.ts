@@ -116,7 +116,7 @@ export default class SSOClient {
         client: this.credentials,
       })
       this.authURI = this.oauth2.authorizationCode.authorizeURL({
-        redirectURI: this.clientPaths.clientHost + "/callback",
+        redirect_uri: this.clientPaths.clientHost + "/callback",
       })
       this.app.get("/callback", (req, res) => {
         this.callback(req, res)
