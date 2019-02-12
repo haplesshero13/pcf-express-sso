@@ -105,9 +105,10 @@
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
 
-"@types/simple-oauth2@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@types/simple-oauth2/-/simple-oauth2-2.2.0.tgz#2193c8ccc2a1239310e86a8779270df3fb35b6b3"
+"@types/simple-oauth2@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@types/simple-oauth2/-/simple-oauth2-2.2.1.tgz#db961cac33fd273c43b10f19b52c272dcb6530fc"
+  integrity sha512-mlSYlFKMnQPjvSuG1KZmhhcz81PBR82TJtdGRkBD3F7aJo8PgKUd26lckbAr5O6kZPU2WiqJWMCIwTzb0+lXww==
 
 "@types/sinon-chai@^3.2.0":
   version "3.2.0"
@@ -776,9 +777,10 @@ setprototypeof@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.1.0.tgz#d0bd85536887b6fe7c0d818cb962d9d91c54e656"
 
-simple-oauth2@^2.2.0:
+simple-oauth2@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/simple-oauth2/-/simple-oauth2-2.2.1.tgz#c1d20133d0b087bd01c6e33e31a56d70ee5194d1"
+  integrity sha512-Ujn8tU9Nl4CLy5L6ksSL+kJ6eI61NyhLCUZPris6aHMGxnfAnqrYdmTN16VSEl9m5W9WPj1sXJvhoi6kihsaSA==
   dependencies:
     date-fns "^1.3.0"
     debug "^3.1.0"

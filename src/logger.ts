@@ -1,11 +1,11 @@
 import { Request } from "express"
 
 export function info(...args: string[]) {
-  console.log.apply(console, args.slice())
+  console.log.apply(console, [args.slice()])
 }
 
 export function error(...args: string[]) {
-  console.error.apply(console, args.slice())
+  console.error.apply(console, [args.slice()])
 }
 
 export function httpError(req: Request, type?: string) {
