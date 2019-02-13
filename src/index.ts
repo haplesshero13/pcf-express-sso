@@ -115,11 +115,12 @@ export default class SSOClient {
         auth: this.ssoPaths,
         client: this.credentials,
       })
+      const redirectUri = this.clientPaths.clientHost + "/callback"
       this.authURI = this.oauth2.authorizationCode.authorizeURL({
-        redirect_uri: this.clientPaths.clientHost + "/callback",
+        redirect_uri: redirectUri,
       })
       this.app.get("/callback", (req, res) => {
-        this.callback(req, res)
+        this.callback(req, res, redirectUri);
       })
     } else {
       this.bypass = true
@@ -138,14 +139,27 @@ export default class SSOClient {
       }`
   }
 
-  public async callback(req: Request, res: Response) {
+  public async callback(req: Request, res: Response, redirectUri: string) {
     const options = {
       code: req.query.code,
+      redirect_uri: redirectUri,
     } as AuthorizationTokenConfig
     if (this.oauth2) {
+      let result
+      let user
       try {
-        const result = await this.oauth2.authorizationCode.getToken(options)
-        const user = await this.grabUserInfo(result.access_token)
+        result = await this.oauth2.authorizationCode.getToken(options)
+      } catch (error) {
+        log.httpError(req, error)
+        return res.json("Get Token: Authentication failed")
+      }
+      try {
+        user = await this.grabUserInfo(result.access_token)
+      } catch (error) {
+        log.httpError(req, error)
+        return res.json("Get User Info: Authentication failed")
+      }
+      try {
         if (req.session) {
           req.session.user = user
           req.session.authorized = true
@@ -153,7 +167,7 @@ export default class SSOClient {
         return res.redirect("/")
       } catch (error) {
         log.httpError(req, error)
-        return res.json("Authentication failed")
+        return res.json("Redirect: Authentication failed")
       }
     }
   }

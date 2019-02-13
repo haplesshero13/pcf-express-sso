@@ -44,6 +44,6 @@ export default class SSOClient {
     setPathsFromVCAP({ uris }: {
         uris?: string[];
     }, VCAP_SVC: IVCAP): void;
-    callback(req: Request, res: Response): Promise<void | import("express-serve-static-core").Response>;
+    callback(req: Request, res: Response, redirectUri: string): Promise<void | import("express-serve-static-core").Response>;
     private grabUserInfo;
 }
